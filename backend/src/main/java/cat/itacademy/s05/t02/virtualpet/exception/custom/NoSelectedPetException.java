@@ -1,0 +1,11 @@
+package cat.itacademy.s05.t02.virtualpet.exception.custom;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.BAD_REQUEST)
+public class NoSelectedPetException extends RuntimeException {
+    public NoSelectedPetException() {
+        super("No pet has been selected yet");
+    }
+}

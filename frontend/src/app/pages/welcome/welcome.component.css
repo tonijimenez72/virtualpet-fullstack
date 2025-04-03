@@ -1,0 +1,210 @@
+/* 🐾 PET CARD STYLES */
+.pet-card {
+  background-color: #ffffff;
+  border: 2px solid #cce5ff;
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 500px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: box-shadow 0.2s ease;
+}
+
+/* 📝 FLOATING NEW PET FORM */
+.floating-form {
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  width: 400px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: #ffffff;
+  border: 1px solid #007bff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+.pet-card.selected {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.pet-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+/* 💬 INFO CAPSULES */
+.capsule-with-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.6rem 0;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background-color: #eaf6ff;
+}
+
+.capsule {
+  background-color: #f7f7f7;
+  color: #333;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem;
+  gap: 0.6rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+
+  margin-bottom: 0.5rem;
+   margin-right: 0.5rem;
+}
+
+
+.stats {
+  background-color: #e4f4ff;
+}
+
+.capsule-title {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.gadgets {
+  font-size: 1.1rem;
+}
+
+/* 🎮 MINI BUTTONS */
+.inline-buttons {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.mini-btn {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.mini-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.mini-btn.location {
+  border-color: #333;
+  color: #333;
+}
+.mini-btn.location:hover {
+  background-color: #333;
+  color: white;
+}
+
+/* ✅ SELECT / DELETE BUTTONS */
+.action-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.text-btn {
+  background-color: #ffffff;
+  border: 2px solid #cce5ff;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.text-btn.select {
+  border-color: #007bff;
+  color: #007bff;
+}
+.text-btn.select:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.text-btn.delete {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+.text-btn.delete:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+
+.floating-form h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #007bff;
+  text-align: center;
+}
+
+.floating-form input {
+  display: block;
+  width: 90%;
+  margin-bottom: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  transition: border 0.2s ease;
+}
+
+.floating-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.floating-form button {
+  width: 100%;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.floating-form button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.floating-form button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* 📱 Responsive: Convert form to block on small screens */
+@media (max-width: 768px) {
+  .floating-form {
+    position: static;
+    width: 100%;
+    margin: 2rem auto;
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+}

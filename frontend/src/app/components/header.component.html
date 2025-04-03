@@ -1,0 +1,26 @@
+<header class="app-header">
+  <div class="left-header">
+    <div class="logo">🐾 Virtual Pet</div>
+  </div>
+
+  <div class="auth-section">
+    <ng-container *ngIf="!isLoggedIn; else loggedInBlock">
+      <form class="auth-form" (ngSubmit)="login()">
+        <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+        <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+        <button type="submit">Login</button>
+        <button type="button" class="register" (click)="register()">Register</button>
+      </form>
+
+
+    </ng-container>
+
+    <ng-template #loggedInBlock>
+      <div class="user-info">
+        <span>Ready {{ username | uppercase }}</span>
+        <span *ngIf="selectedPetName"> | 🐶 {{ selectedPetName }}</span>
+        <button class="logout" (click)="logout()">Logout</button>
+      </div>
+    </ng-template>
+  </div>
+</header>

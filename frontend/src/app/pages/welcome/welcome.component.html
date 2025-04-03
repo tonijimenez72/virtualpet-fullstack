@@ -1,0 +1,69 @@
+<div *ngIf="pets.length > 0">
+  <div *ngFor="let pet of pets" class="pet-card" [class.selected]="pet.id === selectedPetId">
+    <h4>
+      🐾 {{ pet.name }} is a {{ pet.color.toLowerCase() }} {{ pet.variety.toLowerCase() }}
+    </h4>
+    <div *ngIf="isAdmin" class="capsule stats">
+      👤 Owner ID: {{ pet.userId }}
+    </div>
+    <div>
+      <div class="capsule stats">
+        😊 {{ pet.happiness }} &nbsp;&nbsp;
+        ⚡ {{ pet.energy }} &nbsp;&nbsp;
+        🧠 {{ pet.wisdom }}
+      </div>
+      <ng-container *ngIf="pet.id === selectedPetId">
+        <div class="capsule stats">
+          <span class="capsule-title">It's time to</span>
+          <div class="inline-buttons">
+            <button class="mini-btn location" (click)="petAction('play', pet.id)">play</button>
+            <button class="mini-btn location" (click)="petAction('train', pet.id)">train</button>
+            <button class="mini-btn location" (click)="petAction('feed', pet.id)">feed</button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div>
+      <div class="capsule stats">
+        📍 {{ pet.location.toLowerCase() }}
+        <span class="gadgets">{{ getAvailableGadgetIcons(parseLocation(pet.location)) }}</span>
+      </div>
+      <ng-container *ngIf="pet.id === selectedPetId">
+        <div class="capsule stats">
+          <span class="capsule-title">Move to</span>
+          <div class="inline-buttons">
+            <button class="mini-btn location"
+                    *ngFor="let loc of getOtherLocations(parseLocation(pet.location))"
+                    (click)="move(pet.id, loc)">
+              {{ loc.toLowerCase() }}
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="action-row">
+      <button class="text-btn select" *ngIf="selectedPetId !== pet.id" (click)="selectPet(pet.id)">
+        Select
+      </button>
+      <button class="text-btn delete" (click)="deletePet(pet.id)">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="pagination-controls" *ngIf="isAdmin && totalPages > 1">
+  <button (click)="previousPage()" [disabled]="currentPage === 0">Anterior</button>
+  <span>Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage + 1 >= totalPages">Siguiente</button>
+</div>
+
+<div class="floating-form" *ngIf="isLoggedIn && !isAdmin">
+  <h4>🐾 Create New Pet</h4>
+  <form (ngSubmit)="createPet()" #petForm="ngForm">
+    <input type="text" name="name" placeholder="Name" [(ngModel)]="newPet.name" required />
+    <input type="text" name="color" placeholder="Color" [(ngModel)]="newPet.color" required />
+    <input type="text" name="variety" placeholder="Variety" [(ngModel)]="newPet.variety" required />
+    <button type="submit" [disabled]="petForm.invalid">Create</button>
+  </form>
+</div>

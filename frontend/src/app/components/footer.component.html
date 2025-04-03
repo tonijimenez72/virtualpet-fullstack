@@ -1,0 +1,9 @@
+<footer class="error-footer">
+  <ng-container *ngIf="error$ | async as error; else noError">
+    <span>⚠️ ERROR: {{ error.message }}</span>
+    <button class="close-btn" (click)="clearError()">✖</button>
+  </ng-container>
+  <ng-template #noError>
+    <span class="placeholder">✅ Everything looks good! </span>
+  </ng-template>
+</footer>

@@ -1,0 +1,14 @@
+<h2>Create a New Pet</h2>
+
+<form (ngSubmit)="createPet()">
+  <label for="name">Name:</label>
+  <input type="text" [(ngModel)]="pet.name" name="name" required>
+
+  <label for="variety">Variety:</label>
+  <input type="text" [(ngModel)]="pet.variety" name="variety" required placeholder="e.g. CAT, DOG, AXOLOTL">
+
+  <label for="color">Color:</label>
+  <input type="text" [(ngModel)]="pet.color" name="color" required placeholder="e.g. Black, Golden, Pink">
+
+  <button type="submit">Create Pet</button>
+</form>
