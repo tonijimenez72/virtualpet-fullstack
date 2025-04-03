@@ -1,5 +1,9 @@
 # Project Presentation ✅
 
+In this project, an AI will be selected to create the frontend of a virtual pet app. The generated code will be analyzed and adjusted, and an attempt will be made to connect it to a simple backend in Java.
+The deliverable includes a presentation on the selected AI, interactions with the AI, code analysis, the frontend-backend connection, and reflections on the learning process.
+The API must be properly documented; README.md, Swagger, etc.
+
 ## 1. Artificial Intelligence Used 🤖
 
 I used **ChatGPT PRO** as an assistant throughout the entire project.
