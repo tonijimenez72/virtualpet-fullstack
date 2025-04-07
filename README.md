@@ -82,7 +82,7 @@ Built with **Angular 17**, using standalone components.
 - Improved structure, clarity, and testing practices
 
 ## 6. Goals accomplised
-📄 See the full checklist in [checklist.md](./checklist.md)
+📄 See the full checklist in [checklist.md](./CHECKLIST.md)
 
 ## 7. Next steps
 ⚛️ To further enhance the project, consider implementing the following impr
